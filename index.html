@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+  </head>
+
+  <body>
+    <header class="header p-3 mb-4 border-5 border-bottom border-dark text-center">
+        <h1>Weather Dashboard</h1>
+    </header>
+    <section class ="container"  >
+        <section class="row">
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <h6 class=" p-1">Search for a city:</h6>   
+                 <div class="input-group mb-3 p-1">
+                <input type="text" class="form-control"             placeholder="San Diego, CA" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3 p-1">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
+                </div>
+            </div>
+            <div id="container" class="col-lg-9 col-md-9 col-sm-12">
+                <div class="card col-lg 2">
+                    <h2 class="text-center" id="city"></h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="temperature"></li>
+                        <li class="list-group-item" id="wind"></li>
+                        <li class="list-group-item" id="humidity"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section class ="container"  >
+        <section class="row">
+            <ul class="" col-lg-2 col-md-2 col sm-4></ul>
+            <div class="col-lg-2 col-md-3 col-sm-6">
+                <ul id="cities"></ul>
+            </div>
+            <div id="container" class="col-lg-9 col-md-9 col-sm-12 row">
+                <div class="card col-lg-2 col-md-2 col-sm-4">
+                    <h4 class="text-center" id="dates-1"></h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="icon-1"></li>
+                        <li class="list-group-item" id="temperature-1"></li>
+                        <li class="list-group-item" id="wind-1"></li>
+                        <li class="list-group-item" id="humidity-1"></li>
+                    </ul>
+                </div>
+                <div class="card col-lg-2 col-md-2 col-sm-4">
+                    <h4 class="text-center" id="dates-2"></h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="icon-2"></li>
+                        <li class="list-group-item" id="temperature-2"></li>
+                        <li class="list-group-item" id="wind-2"></li>
+                        <li class="list-group-item" id="humidity-2"></li>
+                    </ul>
+                </div><div class="card col-lg-2 col-md-2 col-sm-4">
+                    <h4 class="text-center" id="dates-3"></h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="icon-3"></li>
+                        <li class="list-group-item" id="temperature-3"></li>
+                        <li class="list-group-item" id="wind-3"></li>
+                        <li class="list-group-item" id="humidity-3"></li>
+                    </ul>
+                </div><div class="card col-lg-2 col-md-2 col-sm-4">
+                    <h4 class="text-center" id="dates-4"></h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="icon-4"></li>
+                        <li class="list-group-item" id="temperature-4"></li>
+                        <li class="list-group-item" id="wind-4"></li>
+                        <li class="list-group-item" id="humidity-4"></li>
+                    </ul>
+                </div><div class="card col-lg-2 col-md-2 col-sm-4">
+                    <h4 class="text-center" id="dates-5"></h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" id="icon-5"></li>
+                        <li class="list-group-item" id="temperature-5"></li>
+                        <li class="list-group-item" id="wind-5"></li>
+                        <li class="list-group-item" id="humidity-5"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+<script
+            src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+             crossorigin="anonymous">
+        </script>
+
+        <script src="./assets/javascript/script.js" ></script>
+        
+   </body>
+
+</html>

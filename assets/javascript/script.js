@@ -45,7 +45,7 @@ function currentWeather() {
         })
         .then(function (data) {
             console.log(data);
-               city.textContent=data.name + " ("+date + ")";
+               city.textContent=data.name + " ("+date + ") " + data.weather[0].icon;
                temperature.textContent="Temp: " + data.main.temp + " degrees F";
                wind.textContent= "Wind Speed: " + data.wind.speed + " mph";
                humidity.textContent="Humidity: " + data.main.humidity +"%";
@@ -64,26 +64,31 @@ function fiveDay() {
              console.log(data);
               
                dateOne.textContent=dateTomorrow;
+
                temperatureOne.textContent="Temperature: "+data.list[5].main.temp + " degrees F";
                windOne.textContent ="Wind Speed: "+data.list[5].wind.speed + " mph";
                humidityOne.textContent= "Humidity: "+data.list[5].main.humidity + "%";
 
                dateTwo.textContent=dateTwoDays;
+
                temperatureTwo.textContent="Temperature: "+data.list[13].main.temp + " degrees F";
                windTwo.textContent ="Wind Speed: "+data.list[13].wind.speed + " mph";
                humidityTwo.textContent= "Humidity: "+data.list[13].main.humidity + "%";
 
                dateThree.textContent=dateThreeDays;
+
                temperatureThree.textContent="Temperature: "+data.list[21].main.temp + " degrees F";
                windThree.textContent ="Wind Speed: "+data.list[21].wind.speed + " mph";
                humidityThree.textContent= "Humidity: "+data.list[21].main.humidity + "%";
 
                dateFour.textContent=dateFourDays;
+
                temperatureFour.textContent="Temperature: "+data.list[29].main.temp + " degrees F";
                windFour.textContent ="Wind Speed: "+data.list[29].wind.speed + " mph";
                humidityFour.textContent= "Humidity: "+data.list[29].main.humidity + "%";
 
                dateFive.textContent=dateFiveDays;
+
                temperatureFive.textContent="Temperature: "+data.list[37].main.temp + " degrees F";
                windFive.textContent ="Wind Speed: "+data.list[37].wind.speed + " mph";
                humidityFive.textContent= "Humidity: "+data.list[37].main.humidity + "%";

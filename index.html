@@ -21,7 +21,7 @@
         <section class="row">
             <div class="col-lg-2 col-md-3 col-sm-6">
                 <h6 class=" p-1">Search for a city:</h6>   
-                 <div class="input-group mb-3 p-1">
+                <div class="input-group mb-3 p-1" id="input-city">
                 <input type="text" class="form-control"             placeholder="San Diego, CA" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3 p-1">
@@ -29,14 +29,7 @@
                 </div>
             </div>
             <div id="container" class="col-lg-9 col-md-9 col-sm-12">
-                <div class="card col-lg 2">
-                    <h2 class="text-center" id="city"></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" id="temperature"></li>
-                        <li class="list-group-item" id="wind"></li>
-                        <li class="list-group-item" id="humidity"></li>
-                    </ul>
-                </div>
+                <div class="card col-lg 2" id="main-temperature"></div>
             </div>
         </section>
     </section>
@@ -47,47 +40,15 @@
                 <ul id="cities"></ul>
             </div>
             <div id="container" class="col-lg-9 col-md-9 col-sm-12 row">
-                <div class="card col-lg-2 col-md-2 col-sm-4">
-                    <h4 class="text-center" id="dates-1"></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" id="icon-1"></li>
-                        <li class="list-group-item" id="temperature-1"></li>
-                        <li class="list-group-item" id="wind-1"></li>
-                        <li class="list-group-item" id="humidity-1"></li>
-                    </ul>
+                <div class="forecast card col-lg-2 col-md-2 col-sm-4" id="forecast-one">
                 </div>
-                <div class="card col-lg-2 col-md-2 col-sm-4">
-                    <h4 class="text-center" id="dates-2"></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" id="icon-2"></li>
-                        <li class="list-group-item" id="temperature-2"></li>
-                        <li class="list-group-item" id="wind-2"></li>
-                        <li class="list-group-item" id="humidity-2"></li>
-                    </ul>
-                </div><div class="card col-lg-2 col-md-2 col-sm-4">
-                    <h4 class="text-center" id="dates-3"></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" id="icon-3"></li>
-                        <li class="list-group-item" id="temperature-3"></li>
-                        <li class="list-group-item" id="wind-3"></li>
-                        <li class="list-group-item" id="humidity-3"></li>
-                    </ul>
-                </div><div class="card col-lg-2 col-md-2 col-sm-4">
-                    <h4 class="text-center" id="dates-4"></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" id="icon-4"></li>
-                        <li class="list-group-item" id="temperature-4"></li>
-                        <li class="list-group-item" id="wind-4"></li>
-                        <li class="list-group-item" id="humidity-4"></li>
-                    </ul>
-                </div><div class="card col-lg-2 col-md-2 col-sm-4">
-                    <h4 class="text-center" id="dates-5"></h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item" id="icon-5"></li>
-                        <li class="list-group-item" id="temperature-5"></li>
-                        <li class="list-group-item" id="wind-5"></li>
-                        <li class="list-group-item" id="humidity-5"></li>
-                    </ul>
+                <div class="forecast card col-lg-2 col-md-2 col-sm-4" id="forecast-two">
+                </div>
+                <div class="forecast card col-lg-2 col-md-2 col-sm-4" id="forecast-three">
+                </div>
+                <div class="forecast card col-lg-2 col-md-2 col-sm-4" id="forecast-four">
+                </div>
+                <div class="forecast card col-lg-2 col-md-2 col-sm-4" id="forecast-five">
                 </div>
             </div>
         </section>

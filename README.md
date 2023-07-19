@@ -15,7 +15,7 @@
 
 # Credits
     Donnie Rawlings: https://github.com/drawlin22/
-    Received assistance from Tutor Neil Dhand.
+    Received assistance from AskBSC John Armstrong.
    
 # License
     MIT

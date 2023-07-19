@@ -1,43 +1,24 @@
-var city=document.getElementById("city");
-var temperature= document.getElementById("temperature");
-var wind= document.getElementById("wind");
-var humidity = document.getElementById("humidity");
-var date= dayjs().format('dddd M D,YYYY')
-var dateOne=document.getElementById("dates-1");
-var iconOne= document.getElementById("icon-1");
-var temperatureOne= document.getElementById("temperature-1");
-var windOne= document.getElementById("wind-1");
-var humidityOne = document.getElementById("humidity-1");
-var dateTwo=document.getElementById("dates-2");
-var iconTwo= document.getElementById("icon-2");
-var temperatureTwo= document.getElementById("temperature-2");
-var windTwo= document.getElementById("wind-2");
-var humidityTwo = document.getElementById("humidity-2");
-var dateThree=document.getElementById("dates-3");
-var iconThree= document.getElementById("icon-3");
-var temperatureThree= document.getElementById("temperature-3");
-var windThree= document.getElementById("wind-3");
-var humidityThree = document.getElementById("humidity-3");
-var dateFour=document.getElementById("dates-4");
-var iconFour= document.getElementById("icon-4");
-var temperatureFour= document.getElementById("temperature-4");
-var windFour= document.getElementById("wind-4");
-var humidityFour = document.getElementById("humidity-4");
-var dateFive=document.getElementById("dates-5");
-var iconFive= document.getElementById("icon-5");
-var temperatureFive= document.getElementById("temperature-5");
-var windFive= document.getElementById("wind-5");
-var humidityFive = document.getElementById("humidity-5");
-var dateTomorrow = dayjs().add(1, 'day').format('M D, YYYY')
-var dateTwoDays = dayjs().add(2, 'day').format('M D, YYYY')
-var dateThreeDays = dayjs().add(3, 'day').format('M D, YYYY')
-var dateFourDays = dayjs().add(4, 'day').format('M D, YYYY')
-var dateFiveDays = dayjs().add(5, 'day').format('M D, YYYY')
+var mainTemperature= document.getElementById("main-temperature");
+var forecastOne=document.getElementById("forecast-one");
+var forecastTwo=document.getElementById("forecast-two");
+var forecastThree=document.getElementById("forecast-three");
+var forecastFour=document.getElementById("forecast-four");
+var forecastFive=document.getElementById("forecast-five")
+var inputCity=document.getElementById("input-city");
+var button=document.querySelector(".btn");
+
+var date= dayjs().format('dddd M/D/YY')
+var dateTomorrow = dayjs().add(1, 'day').format('M/D/YY');
+var dateTwoDays = dayjs().add(2, 'day').format('M/D/YY');
+var dateThreeDays = dayjs().add(3, 'day').format('M/D/YY');
+var dateFourDays = dayjs().add(4, 'day').format('M/D/YY');
+var dateFiveDays = dayjs().add(5, 'day').format('M/D/YY');
 
 
 
 function currentWeather() {
-    var requestUrl ='https://api.openweathermap.org/data/2.5/weather?q=Turlock,CA,usa&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial';
+    var inputLocation= inputCity.value;
+    var requestUrl ="https://api.openweathermap.org/data/2.5/weather?q=Modesto,CA,USA&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial";
 
     fetch(requestUrl)
         .then(function (response){
@@ -45,55 +26,147 @@ function currentWeather() {
         })
         .then(function (data) {
             console.log(data);
-               city.textContent=data.name + " ("+date + ") " + data.weather[0].icon;
+            var city=document.createElement("h2");
+            var headerIconEl =document.createElement("img");
+            var temperature = document.createElement("p");
+            var wind= document.createElement("p");
+            var humidity= document.createElement("p")
+
+
+            city.textContent=data.name + " ("+date + ") ";
+               imgSrc=data.weather[0].icon
+               iconUrl= "https://openweathermap.org/img/w/"+imgSrc+ ".png";
+               headerIconEl.src=iconUrl
                temperature.textContent="Temp: " + data.main.temp + " degrees F";
                wind.textContent= "Wind Speed: " + data.wind.speed + " mph";
                humidity.textContent="Humidity: " + data.main.humidity +"%";
+               
+           mainTemperature.appendChild(city);
+           mainTemperature.appendChild(headerIconEl);
+           mainTemperature.appendChild(temperature);
+           mainTemperature.appendChild(wind);
+           mainTemperature.appendChild(humidity);
         })
 }
-
+ 
 
 function fiveDay() {
-     var requestUrl ='https://api.openweathermap.org/data/2.5/forecast?q=Turlock,CA,usa&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial';
-
+     
+    var inputLocation= inputCity.value;
+    
+    var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q=Modesto,CA,USA&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial";
+    
      fetch(requestUrl)
          .then(function (response){
              return response.json();
          })
          .then(function (data) {
              console.log(data);
-              
-               dateOne.textContent=dateTomorrow;
+                var dateOne=document.createElement("h4");
+                var iconOne =document.createElement("img");
+                var temperatureOne = document.createElement("p");
+                var windOne= document.createElement("p");
+                var humidityOne= document.createElement("p") 
 
-               temperatureOne.textContent="Temperature: "+data.list[5].main.temp + " degrees F";
-               windOne.textContent ="Wind Speed: "+data.list[5].wind.speed + " mph";
-               humidityOne.textContent= "Humidity: "+data.list[5].main.humidity + "%";
+               dateOne.textContent=dateTomorrow;
+               imgSrcOne=data.list[1].weather[0].icon
+               iconUrlOne= "https://openweathermap.org/img/w/"+imgSrcOne+ ".png";
+               iconOne.src=iconUrlOne
+               temperatureOne.textContent="Temperature: "+data.list[1].main.temp + " degrees F";
+               windOne.textContent ="Wind Speed: "+data.list[1].wind.speed + " mph";
+               humidityOne.textContent= "Humidity: "+data.list[1].main.humidity + "%";
+
+               forecastOne.appendChild(dateOne);
+               forecastOne.appendChild(iconOne);
+               forecastOne.appendChild(temperatureOne);
+               forecastOne.appendChild(windOne);
+               forecastOne.appendChild(humidityOne);
+
+               var dateTwo=document.createElement("h4");
+                var iconTwo =document.createElement("img");
+                var temperatureTwo = document.createElement("p");
+                var windTwo= document.createElement("p");
+                var humidityTwo= document.createElement("p") 
 
                dateTwo.textContent=dateTwoDays;
+               imgSrcTwo=data.list[9].weather[0].icon
+               iconUrlTwo= "https://openweathermap.org/img/w/"+imgSrcTwo+ ".png";
+               iconTwo.src=iconUrlTwo
+               temperatureTwo.textContent="Temperature: "+data.list[9].main.temp + " degrees F";
+               windTwo.textContent ="Wind Speed: "+data.list[9].wind.speed + " mph";
+               humidityTwo.textContent= "Humidity: "+data.list[9].main.humidity + "%";
 
-               temperatureTwo.textContent="Temperature: "+data.list[13].main.temp + " degrees F";
-               windTwo.textContent ="Wind Speed: "+data.list[13].wind.speed + " mph";
-               humidityTwo.textContent= "Humidity: "+data.list[13].main.humidity + "%";
+               forecastTwo.appendChild(dateTwo);
+               forecastTwo.appendChild(iconTwo);
+               forecastTwo.appendChild(temperatureTwo);
+               forecastTwo.appendChild(windTwo);
+               forecastTwo.appendChild(humidityTwo);
+
+               var dateThree=document.createElement("h4");
+               var iconThree =document.createElement("img");
+               var temperatureThree = document.createElement("p");
+               var windThree= document.createElement("p");
+               var humidityThree= document.createElement("p") 
 
                dateThree.textContent=dateThreeDays;
+               imgSrcThree=data.list[17].weather[0].icon
+               iconUrlThree= "https://openweathermap.org/img/w/"+imgSrcThree+ ".png";
+               iconThree.src=iconUrlThree
+               temperatureThree.textContent="Temperature: "+data.list[17].main.temp + " degrees F";
+               windThree.textContent ="Wind Speed: "+data.list[17].wind.speed + " mph";
+               humidityThree.textContent= "Humidity: "+data.list[17].main.humidity + "%";
 
-               temperatureThree.textContent="Temperature: "+data.list[21].main.temp + " degrees F";
-               windThree.textContent ="Wind Speed: "+data.list[21].wind.speed + " mph";
-               humidityThree.textContent= "Humidity: "+data.list[21].main.humidity + "%";
+               forecastThree.appendChild(dateThree);
+               forecastThree.appendChild(iconThree);
+               forecastThree.appendChild(temperatureThree);
+               forecastThree.appendChild(windThree);
+               forecastThree.appendChild(humidityThree);
+
+               var dateFour=document.createElement("h4");
+               var iconFour =document.createElement("img");
+               var temperatureFour = document.createElement("p");
+               var windFour= document.createElement("p");
+               var humidityFour= document.createElement("p")
 
                dateFour.textContent=dateFourDays;
+               imgSrcFour=data.list[25].weather[0].icon
+               iconUrlFour= "https://openweathermap.org/img/w/"+imgSrcFour+ ".png";
+               iconFour.src=iconUrlFour
+               temperatureFour.textContent="Temperature: "+data.list[25].main.temp + " degrees F";
+               windFour.textContent ="Wind Speed: "+data.list[25].wind.speed + " mph";
+               humidityFour.textContent= "Humidity: "+data.list[25].main.humidity + "%";
 
-               temperatureFour.textContent="Temperature: "+data.list[29].main.temp + " degrees F";
-               windFour.textContent ="Wind Speed: "+data.list[29].wind.speed + " mph";
-               humidityFour.textContent= "Humidity: "+data.list[29].main.humidity + "%";
+               forecastFour.appendChild(dateFour);
+               forecastFour.appendChild(iconFour);
+               forecastFour.appendChild(temperatureFour);
+               forecastFour.appendChild(windFour);
+               forecastFour.appendChild(humidityFour);
+
+               var dateFive=document.createElement("h4");
+               var iconFive =document.createElement("img");
+               var temperatureFive = document.createElement("p");
+               var windFive= document.createElement("p");
+               var humidityFive= document.createElement("p")
 
                dateFive.textContent=dateFiveDays;
-
-               temperatureFive.textContent="Temperature: "+data.list[37].main.temp + " degrees F";
-               windFive.textContent ="Wind Speed: "+data.list[37].wind.speed + " mph";
-               humidityFive.textContent= "Humidity: "+data.list[37].main.humidity + "%";
-         })
+               imgSrcFive=data.list[33].weather[0].icon
+               iconUrlFive= "https://openweathermap.org/img/w/"+imgSrcFive+ ".png";
+               iconFive.src=iconUrlFive
+               temperatureFive.textContent="Temperature: "+data.list[33].main.temp + " degrees F";
+               windFive.textContent ="Wind Speed: "+data.list[33].wind.speed + " mph";
+               humidityFive.textContent= "Humidity: "+data.list[33].main.humidity + "%";
+         
+               forecastFive.appendChild(dateFive);
+               forecastFive.appendChild(iconFive);
+               forecastFive.appendChild(temperatureFive);
+               forecastFive.appendChild(windFive);
+               forecastFive.appendChild(humidityFive);
+         
+            })
  }
-
+ button.addEventListener("click", function(){
  currentWeather();
- fiveDay()
+ fiveDay()   
+ })
+ 
+

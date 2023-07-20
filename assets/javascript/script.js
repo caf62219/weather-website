@@ -6,7 +6,6 @@ var forecastFour=document.getElementById("forecast-four");
 var forecastFive=document.getElementById("forecast-five")
 var inputCity=document.getElementById("input-city");
 var button=document.querySelector(".btn");
-var cities=document.getElementById("cities")
 var grouping=document.getElementById("grouping");
 
 
@@ -54,16 +53,19 @@ function fiveDay() {
     
     var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+inputLocation+"&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial";
     
+    //second fetch function for the forecast
      fetch(requestUrl)
          .then(function (response){
              return response.json();
          })
          .then(function (data) {
              console.log(data);
+               //for loop to create a series of cards with set weather time
                 for (i=0; i<data.list.length; i++) {
                     if (data.list[i].dt_txt.substring(11,13)=="03") {
                         console.log(data.list[i])
                     
+                        //creating new elements
                     var cardDiv=document.createElement("div");
                     cardDiv.className="forecast card col-lg-2 col-md-2 col-sm-4"
                     var dateOne=document.createElement("h4");
@@ -72,22 +74,24 @@ function fiveDay() {
                     var windOne= document.createElement("p");
                     var humidityOne= document.createElement("p") 
 
-                    
+                    //setting the text content for the new elements
                     dateOne.textContent=data.list[i].dt_txt.substring(0,10);
-                    imgSrcOne=data.list[i].weather[0].icon
+                    imgSrcOne=data.list[i].weather[0].icon;
                     iconUrlOne= "https://openweathermap.org/img/w/"+imgSrcOne+ ".png";
-                    iconOne.src=iconUrlOne
+                    iconOne.src=iconUrlOne;
                     temperatureOne.textContent="Temperature: "+data.list[i].main.temp + " degrees F";
                     windOne.textContent ="Wind Speed: "+data.list[i].wind.speed + " mph";
                     humidityOne.textContent= "Humidity: "+data.list[i].main.humidity + "%";
                     
+                    //appending the children to card div
                     cardDiv.appendChild(dateOne);
                     cardDiv.appendChild(iconOne);
                     cardDiv.appendChild(temperatureOne);
                     cardDiv.appendChild(windOne);
                     cardDiv.appendChild(humidityOne);
                     
-                    grouping.appendChild(cardDiv) 
+                    //appending the children to grouping
+                    grouping.appendChild(cardDiv); 
                 }
                 }
                
@@ -95,18 +99,35 @@ function fiveDay() {
             })
  }
  button.addEventListener("click", function(){
- currentWeather();
- fiveDay()   
+    //clears the boxes before adding in new elements
+    mainTemperature.textContent="";
+    grouping.textContent="";
+    
+//calls the current weather and five day functions when the button is clicked
+    currentWeather();
+    fiveDay() 
+    storeCities();
  })
  
 function storeCities() {
+    var locations=JSON.parse(localStorage.getItem("inputLocation")) || [];
+    var cities=document.getElementById("cities")
 
-    var locations = {
+    var inputPlace = {
         userCity: inputLocation
     }
 
-    cities.push(inputLocation);
+    locations.push(inputLocation);
 
 
-    localStorage.setItem("userCity",JSON.stringify(inputLocation))
-}
+    localStorage.setItem("userCity",JSON.stringify(inputPlace))
+    
+    
+        const cityButton = document.createElement("button");
+        cities.appendChild(cityButton)
+        cityButton.textContent = inputLocation;
+    }
+
+
+    
+

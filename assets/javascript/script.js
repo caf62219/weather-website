@@ -14,7 +14,7 @@ var inputLocation =inputCity.value
 
 
 function currentWeather() {
-    inputLocation= inputCity.value.trim();
+    inputLocation =inputCity.value.trim()
     var requestUrl ="https://api.openweathermap.org/data/2.5/weather?q="+inputLocation+"&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial";
 
     fetch(requestUrl)
@@ -49,7 +49,7 @@ function currentWeather() {
 
 function fiveDay() {
      
-    inputLocation= inputCity.value.trim();
+    inputLocation =inputCity.value.trim()
     
     var requestUrl ="https://api.openweathermap.org/data/2.5/forecast?q="+inputLocation+"&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial";
     
@@ -94,10 +94,8 @@ function fiveDay() {
                     grouping.appendChild(cardDiv); 
                 }
                 }
-               
-
             })
- }
+        }
  button.addEventListener("click", function(){
     //clears the boxes before adding in new elements
     mainTemperature.textContent="";
@@ -126,8 +124,17 @@ function storeCities() {
         const cityButton = document.createElement("button");
         cities.appendChild(cityButton)
         cityButton.textContent = inputLocation;
-    }
+   
+    cityButton.addEventListener("click", function(){
+        inputLocation=cityButton.value
 
+        mainTemperature.textContent="";
+        grouping.textContent="";
+        currentWeather();
+        fiveDay()    
+    })
+}
 
+    
     
 

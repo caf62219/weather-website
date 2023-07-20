@@ -1,3 +1,8 @@
+img {
+    width:50px;
+    height: 50px;
+}
+
 .header {
     background-color:blueviolet;
     color: white;
@@ -8,9 +13,7 @@
     color: white;
     margin-right: 10px;
     text-align: center;
+  
 }
 
-img {
-    width:50px;
-    height: 50px;
-}
+

@@ -1,3 +1,4 @@
+//Constant Variables
 var mainTemperature= document.getElementById("main-temperature");
 var forecastOne=document.getElementById("forecast-one");
 var forecastTwo=document.getElementById("forecast-two");
@@ -8,28 +9,30 @@ var inputCity=document.getElementById("input-city");
 var button=document.querySelector(".btn");
 var grouping=document.getElementById("grouping");
 
-
 var date= dayjs().format('dddd M/D/YY')
 var inputLocation =inputCity.value
 
-
+//function for the current weather
 function currentWeather() {
     inputLocation =inputCity.value.trim()
+    //request URL incorporating the user inputted city
     var requestUrl ="https://api.openweathermap.org/data/2.5/weather?q="+inputLocation+"&APPID=88a5790f881a820d719667c737ffc4f3&units=imperial";
 
+//fetch request that returns data
     fetch(requestUrl)
         .then(function (response){
             return response.json();
         })
         .then(function (data) {
             console.log(data);
+//creating elements that will be part of the display
             var city=document.createElement("h2");
             var headerIconEl =document.createElement("img");
             var temperature = document.createElement("p");
             var wind= document.createElement("p");
             var humidity= document.createElement("p")
 
-
+//creating content for the newly created elements
             city.textContent=data.name + " ("+date + ") ";
                imgSrc=data.weather[0].icon
                iconUrl= "https://openweathermap.org/img/w/"+imgSrc+ ".png";
@@ -37,7 +40,7 @@ function currentWeather() {
                temperature.textContent="Temp: " + data.main.temp + " degrees F";
                wind.textContent= "Wind Speed: " + data.wind.speed + " mph";
                humidity.textContent="Humidity: " + data.main.humidity +"%";
-               
+//appending the new elements to the DOM  
            mainTemperature.appendChild(city);
            mainTemperature.appendChild(headerIconEl);
            mainTemperature.appendChild(temperature);
@@ -45,8 +48,7 @@ function currentWeather() {
            mainTemperature.appendChild(humidity);
         })
 }
- 
-
+//function that displays the five day forecast
 function fiveDay() {
      
     inputLocation =inputCity.value.trim()
@@ -125,8 +127,9 @@ function storeCities() {
         cities.appendChild(cityButton)
         cityButton.textContent = inputLocation;
    
-    cityButton.addEventListener("click", function(){
-        inputLocation=cityButton.value
+    cityButton.addEventListener("click", function(event){
+       
+        inputCity.value=event.target.textContent
 
         mainTemperature.textContent="";
         grouping.textContent="";

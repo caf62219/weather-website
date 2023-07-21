@@ -8,6 +8,7 @@ var forecastFive=document.getElementById("forecast-five")
 var inputCity=document.getElementById("input-city");
 var button=document.querySelector(".btn");
 var grouping=document.getElementById("grouping");
+var cities=document.getElementById("cities")
 
 var date= dayjs().format('dddd M/D/YY')
 var inputLocation =inputCity.value
@@ -111,26 +112,14 @@ function fiveDay() {
  
 function storeCities() {
     var locations=JSON.parse(localStorage.getItem("inputLocation")) || [];
-    var cities=document.getElementById("cities")
-
-    var inputPlace = {
-        userCity: inputLocation
-    }
-
-    locations.push(inputLocation);
-
-
-    localStorage.setItem("userCity",JSON.stringify(inputPlace))
-    
-    
+       locations.push(inputLocation);
+    localStorage.setItem(inputLocation,JSON.stringify(locations));
         const cityButton = document.createElement("button");
         cities.appendChild(cityButton)
         cityButton.textContent = inputLocation;
    
     cityButton.addEventListener("click", function(event){
-       
         inputCity.value=event.target.textContent
-
         mainTemperature.textContent="";
         grouping.textContent="";
         currentWeather();
@@ -138,6 +127,15 @@ function storeCities() {
     })
 }
 
-    
+
+function renderCities(){
+    var locations=JSON.parse(localStorage.getItem("inputLocation"))
+    for (i=0; i <locations.length; i++){
+    const cityButton = document.createElement("button");
+    cities.appendChild(cityButton)
+    cityButton.textContent = locations[i];
+    }
     
 
+}
+renderCities()

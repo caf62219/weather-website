@@ -15,5 +15,8 @@ img {
     text-align: center;
   
 }
-
+#cities {
+    display:block;
+    position: absolute;
+}
 

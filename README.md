@@ -15,8 +15,9 @@
 
 # Credits
     Donnie Rawlings: https://github.com/drawlin22/
-    Received assistance from AskBSC John Armstrong.
-    Assistance from Jehyun TA
+    Received assistance from AskBCS John Armstrong.
+    Assistance from Jehyun TA and Jaime TA
+    Received assistance from AskBCS Joem Casusi
    
 # License
     MIT

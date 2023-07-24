@@ -99,7 +99,7 @@ function fiveDay() {
                 }
             })
         }
- button.addEventListener("click", function(){
+ button.addEventListener("click" , function(){
     //clears the boxes before adding in new elements
     mainTemperature.textContent="";
     grouping.textContent="";
@@ -109,9 +109,24 @@ function fiveDay() {
     fiveDay() 
     storeCities();
  })
+
+ //If you enter on the City input box you get the same result as clicking the search button
+inputCity.addEventListener("keypress", function(event){
+    if (event.key ==="Enter") {
+        event.preventDefault()
+         //clears the boxes before adding in new elements
+    mainTemperature.textContent="";
+    grouping.textContent="";
+    
+//calls the current weather and five day functions when the button is clicked
+    currentWeather();
+    fiveDay() 
+    storeCities();
+    }
+ })
  
 function storeCities() {
-    var locations=JSON.parse(localStorage.getItem("inputLocation")) || [];  
+    var locations=JSON.parse(localStorage.getItem("cities")) || [];  
     locations.push(inputLocation);
     localStorage.setItem("cities",JSON.stringify(locations));
         const cityButton = document.createElement("button");
@@ -127,17 +142,24 @@ function storeCities() {
     })
     
 }
-
+//function for cities from local storage to appear on page on reload
 function renderCities(){
-    var locations=JSON.parse(localStorage.getItem("inputLocation"));
-        
+    var locations=JSON.parse(localStorage.getItem("cities"));
+//array to load each of the city buttons      
     if (Array.isArray(locations) && locations.length > 0){
         for (i=0; i<locations.length; i++) {
         var cityButton = document.createElement("button");
         cities.appendChild(cityButton);
         cityButton.textContent = locations[i];
         }}
-     
+ //adds a listener for the cities button when clicked to render it    
+        cityButton.addEventListener("click", function(event){
+            inputCity.value=event.target.textContent;
+            mainTemperature.textContent="";
+            grouping.textContent="";
+            currentWeather();
+            fiveDay();   
+        })
 }
 
 renderCities()

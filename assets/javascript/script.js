@@ -35,12 +35,12 @@ function currentWeather() {
 
 //creating content for the newly created elements
             city.textContent=data.name + " ("+date + ") ";
-               imgSrc=data.weather[0].icon
-               iconUrl= "https://openweathermap.org/img/w/"+imgSrc+ ".png";
-               headerIconEl.src=iconUrl
-               temperature.textContent="Temp: " + data.main.temp + " degrees F";
-               wind.textContent= "Wind Speed: " + data.wind.speed + " mph";
-               humidity.textContent="Humidity: " + data.main.humidity +"%";
+            imgSrc=data.weather[0].icon
+            iconUrl= "https://openweathermap.org/img/w/"+imgSrc+ ".png";
+            headerIconEl.src=iconUrl
+            temperature.textContent="Temp: " + data.main.temp + " degrees F";
+            wind.textContent= "Wind Speed: " + data.wind.speed + " mph";
+            humidity.textContent="Humidity: " + data.main.humidity +"%";
 //appending the new elements to the DOM  
            mainTemperature.appendChild(city);
            mainTemperature.appendChild(headerIconEl);
@@ -103,8 +103,7 @@ function fiveDay() {
     //clears the boxes before adding in new elements
     mainTemperature.textContent="";
     grouping.textContent="";
-    
-//calls the current weather and five day functions when the button is clicked
+    //calls the current weather and five day functions when the button is clicked
     currentWeather();
     fiveDay() 
     storeCities();
@@ -115,13 +114,12 @@ inputCity.addEventListener("keypress", function(event){
     if (event.key ==="Enter") {
         event.preventDefault()
          //clears the boxes before adding in new elements
-    mainTemperature.textContent="";
-    grouping.textContent="";
-    
-//calls the current weather and five day functions when the button is clicked
-    currentWeather();
-    fiveDay() 
-    storeCities();
+        mainTemperature.textContent="";
+        grouping.textContent="";
+    //calls the current weather and five day functions when the button is clicked
+        currentWeather();
+        fiveDay() 
+        storeCities();
     }
  })
  

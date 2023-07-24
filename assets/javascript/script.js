@@ -126,13 +126,15 @@ inputCity.addEventListener("keypress", function(event){
  })
  
 function storeCities() {
+   //variable for the initial array
     var locations=JSON.parse(localStorage.getItem("cities")) || [];  
+   //pushes inputLocation into locations so they can save to local storage
     locations.push(inputLocation);
     localStorage.setItem("cities",JSON.stringify(locations));
         const cityButton = document.createElement("button");
         cities.appendChild(cityButton)
         cityButton.textContent = inputLocation;
-    
+  //adds a listener for the cities button when clicked to render it    
     cityButton.addEventListener("click", function(event){
         inputCity.value=event.target.textContent
         mainTemperature.textContent="";
@@ -140,7 +142,6 @@ function storeCities() {
         currentWeather();
         fiveDay()   
     })
-    
 }
 //function for cities from local storage to appear on page on reload
 function renderCities(){
@@ -148,18 +149,20 @@ function renderCities(){
 //array to load each of the city buttons      
     if (Array.isArray(locations) && locations.length > 0){
         for (i=0; i<locations.length; i++) {
-        var cityButton = document.createElement("button");
-        cities.appendChild(cityButton);
-        cityButton.textContent = locations[i];
-        }}
- //adds a listener for the cities button when clicked to render it    
-        cityButton.addEventListener("click", function(event){
-            inputCity.value=event.target.textContent;
-            mainTemperature.textContent="";
-            grouping.textContent="";
-            currentWeather();
-            fiveDay();   
+            var cityButton = document.createElement("button");
+            cities.appendChild(cityButton);
+            cityButton.textContent = locations[i];
+   //adds a listener for the cities button when clicked to render it        
+            cityButton.addEventListener("click", function(event){
+                inputCity.value=event.target.textContent;
+                mainTemperature.textContent="";
+                grouping.textContent="";
+                currentWeather();
+                fiveDay();   
         })
+    }}
+    
+      
 }
-
+//runs the render city function so the buttons for the cities appear from local storage on page refresh
 renderCities()

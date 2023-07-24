@@ -1,13 +1,17 @@
+/*styling for images for the icons*/
+/*elemental styles*/
 img {
     width:50px;
     height: 50px;
 }
 
+/*class styles*/
+/*styling for the header*/
 .header {
     background-color:blueviolet;
     color: white;
 }
-
+/*styling for each of the forecast cards*/
 .forecast {
     background-color: darkgrey;
     color: white;
@@ -15,6 +19,9 @@ img {
     text-align: center;
   
 }
+
+/*id styling*/
+/*styling for city buttons so they align in block*/
 #cities {
     display:block;
     position: absolute;

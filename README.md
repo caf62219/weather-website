@@ -22,6 +22,7 @@
     Assistance from Jehyun TA and Jaime TA
     Received assistance from AskBCS Joem Casusi
     Received assistance from AskBCS Omar Peart
+    Received assistance from AskBCS Max Dunn
    
 # License
     MIT

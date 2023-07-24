@@ -4,21 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- Added link to bootstrap -->
+<!-- Added link to bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <!-- Added link to CSS style sheet -->
+<!-- Added link to CSS style sheet -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
   </head>
 
   <body>
-    <!-- Header stating weather dashboard -->
+<!-- Header stating weather dashboard -->
     <header class="header p-3 mb-4 border-5 border-bottom border-dark text-center">
         <h1>Weather Dashboard</h1>
     </header>
     <section class ="container"  >
         <section class="row">
-           <!-- Upper left input for searching for the cities -->
+<!-- Upper left input for searching for the cities -->
             <div class="col-lg-2 col-md-3 col-sm-6">
                 <h6 class=" p-1">Search for a city:</h6>   
                 <div class="input-group mb-3 p-1" ">
@@ -28,7 +28,7 @@
                 <button class="btn btn-outline-secondary" type="button" id="button-addon1">Search</button>
                 </div>
             </div>
-            <!-- anchor for the main temperature section -->
+<!-- anchor for the main temperature section -->
             <div id="container" class="col-lg-9 col-md-9 col-sm-12">
                 <div class="card col-lg 2" id="main-temperature"></div>
             </div>
@@ -36,18 +36,16 @@
     </section>
     <section class ="container"  >
         <section class="row">
-            <!-- anchor for the list of archived cities -->
+ <!-- anchor for the list of archived cities -->
             <div class="col-lg-2 col-md-3 col-sm-6">
                 <section id="cities" class="d-flex flex-column"></section>
             </div>
-            <!-- anchor for cards for the 5 day forcast -->
+ <!-- anchor for cards for the 5 day forcast -->
             <div id="grouping" class="col-lg-9 col-md-9 col-sm-12 row">
               
             </div>
         </section>
     </section>
-
-
  <!-- connecting in day js -->
 <script
             src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
@@ -55,8 +53,6 @@
              crossorigin="anonymous">
         </script>
 <!-- connecting in my javascript file -->
-        <script src="./assets/javascript/script.js" ></script>
-        
+        <script src="./assets/javascript/script.js" ></script> 
    </body>
-
 </html>

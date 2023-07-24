@@ -111,31 +111,33 @@ function fiveDay() {
  })
  
 function storeCities() {
-    var locations=JSON.parse(localStorage.getItem("inputLocation")) || [];
-       locations.push(inputLocation);
-    localStorage.setItem(inputLocation,JSON.stringify(locations));
+    var locations=JSON.parse(localStorage.getItem("inputLocation")) || [];  
+    locations.push(inputLocation);
+    localStorage.setItem("cities",JSON.stringify(locations));
         const cityButton = document.createElement("button");
         cities.appendChild(cityButton)
         cityButton.textContent = inputLocation;
-   
+    
     cityButton.addEventListener("click", function(event){
         inputCity.value=event.target.textContent
         mainTemperature.textContent="";
         grouping.textContent="";
         currentWeather();
-        fiveDay()    
+        fiveDay()   
     })
+    
 }
-
 
 function renderCities(){
-    var locations=JSON.parse(localStorage.getItem("inputLocation"))
-    for (i=0; i <locations.length; i++){
-    const cityButton = document.createElement("button");
-    cities.appendChild(cityButton)
-    cityButton.textContent = locations[i];
-    }
-    
-
+    var locations=JSON.parse(localStorage.getItem("inputLocation"));
+        
+    if (Array.isArray(locations) && locations.length > 0){
+        for (i=0; i<locations.length; i++) {
+        var cityButton = document.createElement("button");
+        cities.appendChild(cityButton);
+        cityButton.textContent = locations[i];
+        }}
+     
 }
+
 renderCities()
